@@ -1,3 +1,4 @@
+
 ;==================================================================
 
 ;Réimplémentation de la fonction int atoi(const char *nptr)
@@ -155,3 +156,5 @@ _loop:
 _end:
     mov rax, rcx
     jmp _ret
+
+
