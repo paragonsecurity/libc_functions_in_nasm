@@ -38,35 +38,6 @@ _a_l:
     mul rdx ; mul ce char par 10
     movzx r13, byte [rsi+rcx+0x1] ; met le prochain char dans r13
     sub r13, 0x30
-    
-    
-    
-;==================================
-
-; Réimplémentation des fonctions de la libc en nasm 64 bits
-; Une fonction qui calcule la taille d'une chaine de caractère en octets
-
-;=================================
-
-_strlen:
-    push rbp
-    mov rbp, rsp
-    mov rcx, 0
-    mov rax, rdi
-    jmp _loop
-
-_loop:
-    cmp byte [rax], 0
-    je _end
-    inc rax
-    inc rcx
-    jmp _loop
-
-_end:
-    mov rax, rcx
-    jmp _ret
-
-
     add rax, r13
     push rax
     add rsi, 2
@@ -146,3 +117,31 @@ Bad_format:
 ;    syscall
     mov rax, 1
     jmp _ret
+
+
+;==================================
+
+; Réimplémentation des fonctions de la libc en nasm 64 bits
+; Une fonction qui calcule la taille d'une chaine de caractère en octets
+
+;=================================
+
+_strlen:
+    push rbp
+    mov rbp, rsp
+    mov rcx, 0
+    mov rax, rdi
+    jmp _loop
+
+_loop:
+    cmp byte [rax], 0
+    je _end
+    inc rax
+    inc rcx
+    jmp _loop
+
+_end:
+    mov rax, rcx
+    jmp _ret
+    
+    
