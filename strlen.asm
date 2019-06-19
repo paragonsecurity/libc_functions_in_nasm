@@ -4,6 +4,7 @@
 
 ; Réimplémentation des fonctions de la libc en nasm 64 bits
 ; Une fonction qui retourne la taille d'une chaine de caractère en octets
+;   Prototype : int strlen(*string)
 
 ;=================================
 
