@@ -158,3 +158,8 @@ _end:
     jmp _ret
 
 
+    
+    
+_ret:
+     leave ; mov rsp, rbp ; pop rbp
+     ret ; pop rip && jmp rip
