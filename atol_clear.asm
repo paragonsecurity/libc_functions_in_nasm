@@ -38,11 +38,6 @@ _a_l:
     mul rdx ; mul ce char par 10
     movzx r13, byte [rsi+rcx+0x1] ; met le prochain char dans r13
     sub r13, 0x30
-    
-    
-    _ret:
-        leave ; mov rsp, rbp ; pop rbp
-        ret ; pop rip && jmp rip
     add rax, r13
     push rax
     add rsi, 2
@@ -149,4 +144,6 @@ _end:
     mov rax, rcx
     jmp _ret
     
-    
+_ret:
+    leave ; mov rsp, rbp ; pop rbp
+    ret ; pop rip && jmp rip
