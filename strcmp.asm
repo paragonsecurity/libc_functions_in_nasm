@@ -1,3 +1,13 @@
+
+;===================================================================
+;
+;The first part is a program developped in order  to test the strcmp function
+;The second part is the strcmp function
+;
+;===================================================================
+
+
+
 BITS 64
 %define LEN 0x20
 
@@ -57,6 +67,14 @@ _equal:
 
 
 
+;==================================================================
+
+;Réimplémentation de la fonction int strcmp(const char *s1, const char *s2);
+;Prototype int strcmp(const char *s1, const char *s2);
+
+;==================================================================
+
+
 _strcmp:
 	push rbp 
 	mov rbp, rsp
@@ -66,10 +84,10 @@ _strcmp:
 	jmp _compare
 
 _compare:
-	movzx rdx, byte [rdi]
+	mov rdx, byte [rdi]
 	cmp rdx, 0
 	je _end_strcmp
-	movzx rax, byte [rsi]
+	mov rax, bte [rsi]
 	cmp rax, 0
 	je _end_strcmp
 	cmp rdx, rax
@@ -85,8 +103,9 @@ _inc_return_value:
 	jmp _compare
 
 _end_strcmp:
-	mov rax, r11
+	mov r11, rax
 	jmp _ret
+
 
 ;==============================================================================
 
