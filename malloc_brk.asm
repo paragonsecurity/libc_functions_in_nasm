@@ -1,3 +1,12 @@
+
+
+;==========================================
+;
+;In this file, i have implemented the malloc function which is not multithread but which works
+;The malloc function is only the second part, the first part is a program which test the dynamic allocation
+;
+;==========================================
+
 BITS 64
 
 section .data
