@@ -3,8 +3,8 @@ BITS 64
 
 ;==================================================================
 
-;Réimplémentation de la fonction int strncmp(const char *s1, const char *s2, size_t n);
-;Prototype int strncmp(const char *s1, const char *s2, size_t n);
+;The first part is a program which test the strncmp fuction
+; The second part is teh strncmp function
 
 ;==================================================================
 
@@ -14,20 +14,20 @@ section .bss
     input_3 resb LEN
 
 section .data
-    first db 'Entrer une string : ', 0x0
-    first_len equ $-first
+    	first db 'Entrer une string : ', 0x0
+    	first_len equ $-first
 
-    second db 'Entrer une deuxieme string : ', 0x0
-    second_len equ $-second
+    	second db 'Entrer une deuxieme string : ', 0x0
+    	second_len equ $-second
 
-    len_cmp db 'Enter a the size of bytes that will be compare : ', 0x0
-	len_cmp_length equ $-len_cmp
+   	len_cmp db 'Enter a the size of bytes that will be compare : ', 0x0
+ 	len_cmp_length equ $-len_cmp
 
 	not_equal db 'Strings are not equals ! ', 0xa, 0x0
 	not_equal_len equ $-not_equal
 
-    equal db 'strings are equals ! ', 0xa, 0x0
-    equal_len equ $-equal
+    	equal db 'strings are equals ! ', 0xa, 0x0
+    	equal_len equ $-equal
 
 section .text
 	global _start
@@ -39,30 +39,30 @@ _start:
 	mov rdx, first_len
 	syscall
 	mov rax, 0x0
-    mov rdi, 1
-    mov rsi, input
-    mov rdx, LEN
-    syscall
+    	mov rdi, 1
+    	mov rsi, input
+    	mov rdx, LEN
+    	syscall
 	mov rax, 1
-    mov rdi, 1
-    mov rsi, second
-    mov rdx, second_len
-    syscall
-    mov rax, 0
-    mov rdi, 1
-    mov rsi, input_2
-    mov rdx, LEN
-    syscall
+    	mov rdi, 1
+    	mov rsi, second
+    	mov rdx, second_len
+    	syscall
+    	mov rax, 0
+    	mov rdi, 1
+    	mov rsi, input_2
+    	mov rdx, LEN
+    	syscall	
 	mov rax, 0x1
 	mov rdi, 0x1
 	mov rsi, len_cmp
 	mov rdx, len_cmp_length
 	syscall
-    mov rax, 0
-    mov rdi, 1
-    mov rsi, input_3
-    mov rdx, LEN
-    syscall
+    	mov rax, 0
+	mov rdi, 1
+    	mov rsi, input_3
+    	mov rdx, LEN
+    	syscall
 	mov rdi, input_3
 	call _atoi
 	mov rdx, rax
@@ -79,12 +79,12 @@ _start:
 	jmp exit
 
 _cool:
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, equal
-    mov rdx, equal_len
-    syscall
-    jmp exit
+    	mov rax, 1
+    	mov rdi, 1
+	mov rsi, equal
+    	mov rdx, equal_len
+    	syscall
+    	jmp exit
 
 
 ;============================================================
