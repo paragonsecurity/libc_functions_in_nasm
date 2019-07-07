@@ -1,3 +1,10 @@
+;============================================================
+
+;The first part is a program maked in order to test the strcpy function
+;The second part is the strcpy function
+
+;============================================================
+
 BITS 64
 %define LEN 0x20
 
